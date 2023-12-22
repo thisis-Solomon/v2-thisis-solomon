@@ -92,7 +92,7 @@ export default function Projects(): JSX.Element {
                   </small>
                 </section>
               </div>
-              <div className="bg-stone-400/40 h-[2px] w-[25%] md:w-[30%] my-4 mb-5 rounded-full" />
+              <div className="bg-stone-400/40 h-[2gpx] w-[25%] md:w-[30%] my-4 mb-5 rounded-full" />
             </>
           ))}
         </div>
