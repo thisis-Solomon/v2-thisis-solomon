@@ -16,33 +16,37 @@ const skills = [
 
 export default function About(): JSX.Element {
   return (
-    <section>
+    <section className="md:mt-16 md:pt-5">
       <h1 className="uppercase mb-5 font-semibold tracking-widest text-xl">
         About
       </h1>
-      <p className="text-gray-700 text-base mb-4">
+      <p className="text-gray-700 mb-1">
         A passionate and skilled frontend software developer with a focus on
         building user-friendly and responsive web applications.
       </p>
-      <div className="relative">
-        <h1 className="absolute tracking-widest leading-10 text-6xl opacity-10 font-bold text-stone-400 -z-10 uppercase">
+      <div className="relative flex w-full flex-wrap justify-between">
+        <h1 className="absolute tracking-widest leading-10 text-6xl opacity-10 font-bold text-stone-400 -z-10 uppercase md:right-[50%] md:translate-x-[50%]">
           Skills
         </h1>
         {skills.map((skill) => (
-          <div className="flex gap-2 pt-5 flex-col " key={skill.title}>
-            <h2 className="text-base text-stone-700 font-thin uppercase relative w-fit before:absolute before:w-[30%] before:h-[15%] before:bg-stone-400 before:bottom-0 before:left-[1%] before:rounded-full">
-              {skill.title}:
-            </h2>
-            <ul className="flex flex-wrap">
-              {skill.stacks.map((stack, i) => (
-                <li
-                  key={i}
-                  className="py-1.5 px-4 text-center text-base bg-stone-400/20 shadow-lg shadow-stone-300/20 filter backdrop-blur scale-75 rounded-full flex items-center justify-center"
-                >
-                  {stack}
-                </li>
-              ))}
-            </ul>
+          <div className="md:flex gap-2 pt-5 flex-col md:w-[45%]" key={skill.title}>
+            <div>
+              <h2 className="text-base text-stone-700 font-thin uppercase relative w-fit mb-2 before:absolute before:w-[40%] before:h-[10%] before:bg-stone-400 before:bottom-0 before:left-[1%] before:rounded-full">
+                {skill.title}:
+              </h2>
+            </div>
+            <div>
+              <ul className="flex flex-wrap">
+                {skill.stacks.map((stack, i) => (
+                  <li
+                    key={i}
+                    className="py-1.5 md:py-1 px-4 md:px-2.5 text-center md:text-sm  scale-75 md:scale-100 bg-stone-400/20 shadow-lg shadow-stone-300/20 filter backdrop-blur rounded-full flex items-center mb-1 md:mr-1 justify-center"
+                  >
+                    {stack}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>

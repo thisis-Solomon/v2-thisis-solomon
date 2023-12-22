@@ -1,61 +1,52 @@
+import Input from "./Input";
+
 export default function Contact(): JSX.Element {
   return (
-    <section className="hidden">
-      <div className="">
-        <h1 className="section-title">Get in touch</h1>
-        <div className="contact__container bg-grid">
-          <form
-            className="contact__form"
-            action="https://formsubmit.co/solomonnjobvu3@gmail.com"
-            method="POST"
-          >
-            <div>
-              <label htmlFor="name" className="block">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                className=""
-                required
-              />
+    <section className="my-16">
+      <h1 className="uppercase font-semibold tracking-widest mb-5">
+        Get in touch
+      </h1>
+      <div className="contact__container bg-grid">
+        <form
+          className="flex flex-col gap-y-3"
+          action="https://formsubmit.co/solomonnjobvu3@gmail.com"
+          method="POST"
+        >
+          <Input
+            type="text"
+            label="Name"
+            placeholder="Name"
+            required
+            name="name"
+          />
+          <input
+            type="hidden"
+            name="_subject"
+            className="hidden"
+            value="This Email it's coming from your Portfolio"
+          />
+          <Input
+            type="email"
+            name="email"
+            label="Email"
+            placeholder="letsworktogether@example.com"
+            required
+          />
+          <Input
+            name="message"
+            label="Message"
+            placeholder="Lets work together!"
+            cols={0}
+            rows={10}
+            type={undefined}
+          />
 
-              <input
-                type="hidden"
-                name="_subject"
-                value="This is Email its comming from your Portfolio"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email">Email</label>
-
-              <input
-                type="email"
-                name="email"
-                placeholder="letsworktogether@example.com"
-                className="contact__input"
-                required
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message">Message</label>
-
-              <textarea
-                name="message"
-                placeholder="Lets work together!"
-                cols={0}
-                rows={10}
-                className="contact__input"
-                required
-              ></textarea>
-            </div>
-
-            <input type="submit" value="send" className="send btn" />
-          </form>
-        </div>
+          <input
+            type="submit"
+            value="send"
+            className="border text-lg uppercase py-1 rounded-md cursor-pointer"
+          />
+        </form>
       </div>
     </section>
   );
