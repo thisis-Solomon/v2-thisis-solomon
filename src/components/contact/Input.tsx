@@ -1,4 +1,15 @@
-export default function Input({ type, name, label, ...props }): JSX.Element {
+interface InputPropsIF {
+  type?: "text" | "password" | "email" | "number" | "checkbox";
+  name: string;
+  label: string;
+}
+
+export default function Input({
+  type,
+  name,
+  label,
+  ...props
+}: InputPropsIF): JSX.Element {
   const inputStyles = "border w-full p-2 text-sm rounded-md";
 
   return (
