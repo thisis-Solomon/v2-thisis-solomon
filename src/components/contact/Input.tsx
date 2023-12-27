@@ -3,6 +3,9 @@ interface InputPropsIF {
   name: string;
   label: string;
   placeholder?: string;
+  required?: boolean;
+  cols?: number;
+  rows?: number;
 }
 
 export default function Input({
