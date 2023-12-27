@@ -1,9 +1,13 @@
 import { FaLinkedin, FaGithub, FaInstagramSquare } from "react-icons/fa";
 
-function ListItem({ title, ...props }): JSX.Element {
+interface ListItemProps {
+  title: string;
+}
+
+function ListItem({ title, ...props }: ListItemProps): JSX.Element {
   return (
     <li className="flex items-center gap-5 mb-2" {...props}>
-      <span className="h-0.5 w-8 bg-gray-800 inline-block" {...props}/>
+      <span className="h-0.5 w-8 bg-gray-800 inline-block" {...props} />
       {title}
     </li>
   );
@@ -30,7 +34,7 @@ export default function Sidebar(): JSX.Element {
       {/* Navigation menu options */}
       <menu className="mb-7 hidden md:block">
         <ul className="text-stone-700 text-xl">
-          <ListItem title="About"/>
+          <ListItem title="About" />
           <ListItem title="Projects" />
           <ListItem title="Contact" />
         </ul>
