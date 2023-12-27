@@ -2,6 +2,7 @@ interface InputPropsIF {
   type?: "text" | "password" | "email" | "number" | "checkbox";
   name: string;
   label: string;
+  placeholder?: string;
 }
 
 export default function Input({
