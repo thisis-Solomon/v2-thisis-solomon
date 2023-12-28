@@ -2,6 +2,7 @@ import { BsArrowRight, BsBoxArrowInUpRight } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { client } from "../../../client";
 import { imgUrl } from "../../imgUrl";
+import { Title } from "../sharedUi/Title";
 
 interface ProjectIF {
   title: string;
@@ -58,7 +59,6 @@ export default function Projects(): JSX.Element {
       `);
         setProjects(data);
         setIsLoading(false);
-        console.log(data);
       } catch (error) {
         console.log("error occured: ", error);
       }
@@ -69,40 +69,42 @@ export default function Projects(): JSX.Element {
   return (
     <>
       <section className="my-16 relative">
-        <h1 className="text-xl tracking-widest font-semibold uppercase">
-          Projects
-        </h1>
+        <Title>Projects</Title>
         <div className="py-5">
           {!isLoading &&
             projects.map((project) => (
               <section key={project.title}>
-                <div className="mb-10 py-4  border-2 border-transparent hover:border-stone-200/25 rounded-lg px-3 bg-transparent hover:filter hover:backdrop-blur hover:shadow-lg hover:shadow-stone-300/20">
+                <div className="mb-10 py-4  border-2 border-transparent hover:border-teal-200/25 rounded-lg px-3 bg-transparent hover:filter hover:backdrop-blur hover:shadow hover:shadow-teal-700/20">
                   <aside className="relative mb-2 h-[15rem]  md:h-64 rounded overflow-hidden shadow w-full">
                     {/* Desktop image */}
-                    <img
-                      src={imgUrl(
-                        project.project_image_desktop.asset._ref,
-                        // project.project_image_desktop.crop,
-                        // project.project_image_desktop.hotspot
-                      )}
-                      alt={project.title}
-                      className="w-[100%] md:w-[80%] h-full border-1 border-stone-300/40 shadow-lg left-0 object-contain rounded-md overflow-hidden absolute"
-                    />
+                    {project.project_image_desktop && (
+                      <img
+                        src={imgUrl(
+                          project.project_image_desktop.asset._ref
+                          // project.project_image_desktop.crop,
+                          // project.project_image_desktop.hotspot
+                        )}
+                        alt={project.title}
+                        className="w-[100%] md:w-[80%] h-full border-1 border-stone-300/40 shadow-lg left-0 object-contain rounded-md overflow-hidden absolute dark:brightness-75"
+                      />
+                    )}
                     {/* Mobile image */}
-                    <img
-                      src={imgUrl(project.project_image_mobile.asset._ref)}
-                      // alt={project.name}
-                      className="object-contain border-2 absolute bottom-3 shadow-lg shadow-black/30 rounded-sm overflow-hidden w-[30%] md:w-[26%] right-2"
-                    />
+                    {project.project_image_mobile && (
+                      <img
+                        src={imgUrl(project.project_image_mobile.asset._ref)}
+                        // alt={project.name}
+                        className="object-contain border-2 absolute bottom-3 shadow-lg shadow-black/30 rounded-sm overflow-hidden w-[30%] md:w-[26%] right-2 dark:brightness-75"
+                      />
+                    )}
                   </aside>
                   <section>
-                    <h1 className="flex items-center justify-between font-black text-xl text-stone-800 py-2">
+                    <h1 className="flex items-center justify-between font-black text-xl text-stone-800 dark:text-stone-300 py-2">
                       <span>{project.title}</span>
                       <span>
                         <BsBoxArrowInUpRight />
                       </span>
                     </h1>
-                    <p className="text-stone-700 text-sm">
+                    <p className="text-stone-700 dark:text-stone-400 text-sm">
                       {project.description}
                     </p>
                     <small>
@@ -110,7 +112,7 @@ export default function Projects(): JSX.Element {
                         {project.tags.map((tag) => (
                           <li
                             key={tag}
-                            className="py-1 px-2 font-extralight rounded-md shadow-lg filter backdrop-blur shadow-stone-300/40 bg-stone-900/70  text-teal-50"
+                            className="py-1 px-2 font-extralight rounded-md shadow filter backdrop-blur shadow-teal-300/25 bg-stone-900/70  text-teal-50 dark:text-teal-300"
                           >
                             {tag}
                           </li>

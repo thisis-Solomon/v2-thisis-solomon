@@ -1,11 +1,10 @@
+import { Title } from "../sharedUi/Title";
 import Input from "./Input";
 
 export default function Contact(): JSX.Element {
   return (
     <section className="my-16">
-      <h1 className="uppercase font-semibold tracking-widest mb-5">
-        Get in touch
-      </h1>
+      <Title>Get in touch</Title>
       <div className="contact__container bg-grid">
         <form
           className="flex flex-col gap-y-3"
@@ -44,7 +43,7 @@ export default function Contact(): JSX.Element {
           <input
             type="submit"
             value="send"
-            className="border text-lg uppercase py-1 rounded-md cursor-pointer"
+            className="border dark:text-stone-300 text-lg uppercase py-1 rounded-md cursor-pointer"
           />
         </form>
       </div>
