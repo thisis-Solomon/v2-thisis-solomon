@@ -43,7 +43,7 @@ export default function Contact(): JSX.Element {
           <input
             type="submit"
             value="send"
-            className="border dark:text-stone-300 text-lg uppercase py-1 rounded-md cursor-pointer"
+            className="border dark:border-teal-700 dark:text-stone-300 text-lg uppercase py-1 rounded-md cursor-pointer"
           />
         </form>
       </div>

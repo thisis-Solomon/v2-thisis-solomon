@@ -14,7 +14,8 @@ export default function Input({
   label,
   ...props
 }: InputPropsIF): JSX.Element {
-  const inputStyles = "dark:bg-stone-400 placeholder:text-stone-700 border w-full p-2 text-sm rounded-md";
+  const inputStyles =
+    "dark:bg-stone-400 placeholder:text-stone-700 border dark:border-none w-full p-2 text-sm rounded-md";
 
   return (
     <div>

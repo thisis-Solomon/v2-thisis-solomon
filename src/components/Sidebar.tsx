@@ -1,4 +1,4 @@
-import { FaLinkedin, FaGithub, FaInstagramSquare } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 interface ListItemProps {
   title: string;
@@ -7,7 +7,10 @@ interface ListItemProps {
 function ListItem({ title, ...props }: ListItemProps): JSX.Element {
   return (
     <li className="flex items-center gap-5 mb-2" {...props}>
-      <span className="h-0.5 w-8 bg-gray-800 dark:bg-stone-400 inline-block" {...props} />
+      <span
+        className="h-0.5 w-8 bg-gray-800 dark:bg-stone-400 inline-block"
+        {...props}
+      />
       {title}
     </li>
   );
@@ -41,9 +44,15 @@ export default function Sidebar(): JSX.Element {
       </menu>
       {/* Social Media Links */}
       <nav className="flex gap-5 mt-5 text-stone-700 dark:text-slate-400">
-        <FaLinkedin className="h-8 w-8 p-0.5" />
-        <FaGithub className="h-8 w-8 p-0.5" />
-        <FaInstagramSquare className="h-8 w-8 p-0.5" />
+        <a href="https://www.linkedin.com/in/solomonnjobvu/" target="_blank">
+          <FaLinkedin className="h-8 w-8 p-0.5" />
+        </a>
+        <a href="https://github.com/thisis-Solomon" target="_blank">
+          <FaGithub className="h-8 w-8 p-0.5" />
+        </a>
+        {/* <a href="" target="_blank">
+          <FaInstagramSquare className="h-8 w-8 p-0.5" />
+        </a> */}
       </nav>
     </aside>
   );

@@ -74,7 +74,7 @@ export default function Projects(): JSX.Element {
           {!isLoading &&
             projects.map((project) => (
               <section key={project.title}>
-                <div className="mb-10 py-4  border-2 border-transparent hover:border-teal-200/25 rounded-lg px-3 bg-transparent hover:filter hover:backdrop-blur hover:shadow hover:shadow-teal-700/20">
+                <div className="mb-10 py-4  border-2 border-transparent hover:border-teal-200/25 rounded-lg px-3 bg-transparent hover:shadow hover:shadow-teal-700/20">
                   <aside className="relative mb-2 h-[15rem]  md:h-64 rounded overflow-hidden shadow w-full">
                     {/* Desktop image */}
                     {project.project_image_desktop && (

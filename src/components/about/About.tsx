@@ -52,7 +52,7 @@ export default function About(): JSX.Element {
                   {skill.tags.map((stack, i) => (
                     <li
                       key={i}
-                      className="py-1.5 md:py-1 px-4 md:px-2.5 text-center md:text-sm  scale-75 md:scale-100 bg-stone-400/20 shadow shadow-stone-100 dark:shadow-stone-600 dark:text-teal-500 filter backdrop-blur rounded-full flex items-center mb-1 md:mr-1 justify-center"
+                      className="py-1.5 md:py-1 px-4 md:px-2.5 text-center md:text-sm  scale-75 md:scale-100 bg-stone-400/20 shadow shadow-stone-100 dark:shadow-stone-600 dark:text-teal-500 filter md:backdrop-blur rounded-full flex items-center mb-1 md:mr-1 justify-center"
                     >
                       {stack}
                     </li>
