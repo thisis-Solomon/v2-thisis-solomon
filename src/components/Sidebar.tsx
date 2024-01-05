@@ -2,16 +2,17 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 interface ListItemProps {
   title: string;
+  link: string;
 }
 
-function ListItem({ title, ...props }: ListItemProps): JSX.Element {
+function ListItem({ title, link, ...props }: ListItemProps): JSX.Element {
   return (
     <li className="flex items-center gap-5 mb-2" {...props}>
       <span
         className="h-0.5 w-8 bg-gray-800 dark:bg-stone-400 inline-block"
         {...props}
       />
-      {title}
+      <a href={link}>{title}</a>
     </li>
   );
 }
@@ -25,7 +26,9 @@ export default function Sidebar(): JSX.Element {
           Greetings!
         </p>
         <div className="my-5">
-          <h1 className="text-4xl dark:text-stone-200">I'm Solomon Njobvu</h1>
+          <h1 className="text-4xl dark:text-stone-200">
+            I'm <span className="font-semibold text-teal-950 dark:text-teal-200/70">Solomon Njobvu</span>
+          </h1>
           <p className="text-2xl mt-2 text-stone-700 dark:text-stone-300">
             Frontend Software Developer
           </p>
@@ -37,9 +40,9 @@ export default function Sidebar(): JSX.Element {
       {/* Navigation menu options */}
       <menu className="mb-7 hidden md:block">
         <ul className="text-stone-700 dark:text-stone-300 text-xl">
-          <ListItem title="About" />
-          <ListItem title="Projects" />
-          <ListItem title="Contact" />
+          <ListItem title="About" link="#about" />
+          <ListItem title="Projects" link="#project" />
+          <ListItem title="Contact" link="#contact" />
         </ul>
       </menu>
       {/* Social Media Links */}

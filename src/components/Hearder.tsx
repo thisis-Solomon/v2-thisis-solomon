@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import { PiMoonLight, PiSunLight } from "react-icons/pi";
 
+const storedTheme = localStorage.getItem("theme");
+const initialTheme = storedTheme ? JSON.parse(storedTheme) : true;
+
 export default function Header(): JSX.Element {
-  const [itsLight, setItsLight] = useState<boolean>(true);
+  const [itsLight, setItsLight] = useState<boolean>(initialTheme);
 
   const themeHandler = (): void => {
-    setItsLight((prevTheme) => !prevTheme);
+    const newTheme = !itsLight;
+
+    setItsLight(newTheme);
+    localStorage.setItem("theme", JSON.stringify(newTheme));
   };
 
   useEffect(() => {
