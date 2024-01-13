@@ -1,15 +1,15 @@
-import Contents from "./components/Contents";
-import Header from "./components/Hearder";
-import Sidebar from "./components/Sidebar";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import AllProjectsPage from "./pages/AllProjectsPage";
+
+const routes = createBrowserRouter([
+  { path: "/", element: <HomePage /> },
+  {
+    path: "/all-projects",
+    element: <AllProjectsPage />,
+  },
+]);
 
 export default function App() {
-  return (
-    <div className="dark:bg-stone-800">
-      <Header />
-      <main className="container mx-auto px-8 md:flex md:w-[80%] md:gap-x-5">
-        <Sidebar />
-        <Contents />
-      </main>
-    </div>
-  );
+  return <RouterProvider router={routes} />;
 }
