@@ -5,7 +5,7 @@ import AllProjectsPage from "./pages/AllProjectsPage";
 const routes = createBrowserRouter([
   { path: "/", element: <HomePage /> },
   {
-    path: "/all-projects",
+    path: "all-projects",
     element: <AllProjectsPage />,
   },
 ]);
