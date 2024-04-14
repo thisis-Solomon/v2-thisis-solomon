@@ -53,10 +53,10 @@ const Project: React.FC<ProjectPropsIF> = ({ project }) => {
           <h1 className="flex items-center justify-between font-black text-xl text-stone-800 dark:text-stone-300 py-2">
             <span>{project.title}</span>
             <span className="flex gap-4 text-2xl">
-              {project.website_url && <BsBoxArrowInUpRight />}
+              {project.website_url && <BsBoxArrowInUpRight className="bg-white-700 text-stone-300 dark:text-teal-900"/>}
               {project.github_url && (
                 <a href={project.github_url} target="_blank">
-                  <FaSquareGithub />
+                  <FaSquareGithub className="scale-90 hover:scale-110 text-teal-900 dark:text-white" />
                 </a>
               )}
             </span>
