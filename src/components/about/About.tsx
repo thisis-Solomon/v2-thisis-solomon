@@ -26,7 +26,7 @@ export default function About(): JSX.Element {
   }, []);
 
   return (
-    <section className="md:mt-16 md:pt-5">
+    <section className="md:mt-16 md:pt-5" id="about">
       <Title>About</Title>
       <p className="text-gray-700 dark:text-stone-400 mb-1">
         A passionate and skilled frontend software developer with a focus on

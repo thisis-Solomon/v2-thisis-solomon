@@ -60,7 +60,6 @@ export default function Projects(): JSX.Element {
       }
       `);
         setProjects(data);
-        console.log(data);
         setIsLoading(false);
       } catch (error) {
         console.log("error occured: ", error);
@@ -71,7 +70,7 @@ export default function Projects(): JSX.Element {
   }, []);
   return (
     <>
-      <section className="my-16 relative flex flex-col">
+      <section className="my-16 relative flex flex-col" id="project">
         <Title>Projects</Title>
         <div className="py-5">
           {!isLoading &&

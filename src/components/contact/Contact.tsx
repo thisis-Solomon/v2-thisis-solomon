@@ -3,7 +3,7 @@ import Input from "./Input";
 
 export default function Contact(): JSX.Element {
   return (
-    <section className="my-16">
+    <section className="my-16" id="contact">
       <Title>Get in touch</Title>
       <div className="contact__container bg-grid">
         <form

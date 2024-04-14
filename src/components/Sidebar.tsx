@@ -1,18 +1,18 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { Link } from "react-scroll";
 
 interface ListItemProps {
   title: string;
-  link: string;
+  id: string;
 }
 
-function ListItem({ title, link, ...props }: ListItemProps): JSX.Element {
+function ListItem({ title, id }: ListItemProps): JSX.Element {
   return (
-    <li className="flex items-center gap-5 mb-2" {...props}>
-      <span
-        className="h-0.5 w-8 bg-gray-800 dark:bg-stone-400 inline-block"
-        {...props}
-      />
-      <a href={link}>{title}</a>
+    <li className="flex items-center gap-5 mb-2 cursor-pointer">
+      <span className="h-0.5 w-8 bg-gray-800 dark:bg-stone-400 inline-block" />
+      <Link to={id} spy={true} smooth={true} offset={-70} duration={1000}>
+        {title}
+      </Link>
     </li>
   );
 }
@@ -27,7 +27,10 @@ export default function Sidebar(): JSX.Element {
         </p>
         <div className="my-5">
           <h1 className="text-4xl dark:text-stone-200">
-            I'm <span className="font-semibold text-teal-950 dark:text-teal-200/70">Solomon Njobvu</span>
+            I'm{" "}
+            <span className="font-semibold text-teal-950 dark:text-teal-200/70">
+              Solomon Njobvu
+            </span>
           </h1>
           <p className="text-2xl mt-2 text-stone-700 dark:text-stone-300">
             Frontend Software Developer
@@ -40,9 +43,9 @@ export default function Sidebar(): JSX.Element {
       {/* Navigation menu options */}
       <menu className="mb-7 hidden md:block">
         <ul className="text-stone-700 dark:text-stone-300 text-xl">
-          <ListItem title="About" link="#about" />
-          <ListItem title="Projects" link="#project" />
-          <ListItem title="Contact" link="#contact" />
+          <ListItem title="About" id="about" />
+          <ListItem title="Projects" id="project" />
+          <ListItem title="Contact" id="contact" />
         </ul>
       </menu>
       {/* Social Media Links */}
