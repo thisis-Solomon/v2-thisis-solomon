@@ -12,12 +12,13 @@ export default function About(): JSX.Element {
 
   useEffect(() => {
     const fetchSkills = async () => {
-      const data = await client.fetch(`
+      const data: SkillsIF[] = await client.fetch(`
           *[_type == "skills"]{
             title,
             tags
           }     
       `);
+      
       setSkillset(data);
       setIsLoading(false);
     };

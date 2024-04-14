@@ -3,6 +3,7 @@ import { client } from "../../../client";
 import { Title } from "../sharedUi/Title";
 import Project from "./Project";
 import { BsArrowRight } from "react-icons/bs";
+import Loading from "../sharedUi/Loading";
 
 interface ProjectIF {
   title: string;
@@ -73,6 +74,7 @@ export default function Projects(): JSX.Element {
       <section className="my-16 relative flex flex-col" id="project">
         <Title>Projects</Title>
         <div className="py-5">
+          {isLoading && <Loading project/>}
           {!isLoading &&
             projects.map((project) => (
               <a href={project.website_url} target="_blank" key={project.title}>
