@@ -12,7 +12,7 @@ function ListItem({ title, id }: ListItemProps): JSX.Element {
       <span className="h-0.5 w-8 bg-gray-800 dark:bg-stone-400 inline-block" />
       <Link
         activeClass="active"
-        activeStyle={{ fontSize: 24, fontWeight: "bold", color: "#004c4c" }}
+        activeStyle={{ fontSize: 26, color: "#004c4c" }}
         to={id}
         spy={true}
         smooth={true}
