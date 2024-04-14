@@ -10,7 +10,15 @@ function ListItem({ title, id }: ListItemProps): JSX.Element {
   return (
     <li className="flex items-center gap-5 mb-2 cursor-pointer">
       <span className="h-0.5 w-8 bg-gray-800 dark:bg-stone-400 inline-block" />
-      <Link to={id} spy={true} smooth={true} offset={-70} duration={1000}>
+      <Link
+        activeClass="active"
+        activeStyle={{ fontSize: 24, fontWeight: "bold", color: "#004c4c" }}
+        to={id}
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={1000}
+      >
         {title}
       </Link>
     </li>
