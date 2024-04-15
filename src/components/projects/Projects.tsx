@@ -74,7 +74,13 @@ export default function Projects(): JSX.Element {
       <section className="my-16 relative flex flex-col" id="project">
         <Title>Projects</Title>
         <div className="py-5">
-          {isLoading && <Loading project/>}
+          {isLoading && (
+            <>
+              <Loading project />
+              <Loading project />
+              <Loading project />
+            </>
+          )}
           {!isLoading &&
             projects.map((project) => (
               <a href={project.website_url} target="_blank" key={project.title}>
