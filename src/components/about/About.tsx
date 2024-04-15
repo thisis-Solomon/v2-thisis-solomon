@@ -39,7 +39,7 @@ export default function About(): JSX.Element {
           Skills
         </h1>
         {isLoading && (
-          <div className="grid grid-cols-2 gap-2 w-full">
+          <div className="md:grid md:grid-cols-2 gap-2 w-full">
             <Loading />
             <Loading />
             <Loading />
