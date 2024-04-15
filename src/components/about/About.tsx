@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { client } from "../../../client";
 import { Title } from "../sharedUi/Title";
+import Loading from "../sharedUi/Loading";
 
 interface SkillsIF {
   title: string;
@@ -18,7 +19,7 @@ export default function About(): JSX.Element {
             tags
           }     
       `);
-      
+
       setSkillset(data);
       setIsLoading(false);
     };
@@ -37,6 +38,14 @@ export default function About(): JSX.Element {
         <h1 className="absolute tracking-widest leading-10 text-6xl opacity-10 font-bold text-stone-400 -z-10 uppercase md:right-[50%] md:translate-x-[50%]">
           Skills
         </h1>
+        {isLoading && (
+          <div className="grid grid-cols-2 gap-2 w-full">
+            <Loading />
+            <Loading />
+            <Loading />
+            <Loading />
+          </div>
+        )}
         {!isLoading &&
           skillset.map((skill) => (
             <div
