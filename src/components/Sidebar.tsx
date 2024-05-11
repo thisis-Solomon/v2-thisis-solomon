@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { Link } from "react-scroll";
 
@@ -6,7 +7,26 @@ interface ListItemProps {
   id: string;
 }
 
-function ListItem({ title, id }: ListItemProps): JSX.Element {
+type SocialLinkProps = {
+  href: string;
+  target?: string;
+  children: React.ReactNode;
+  className?: string;
+};
+
+const SocialLink: React.FC<SocialLinkProps> = (props) => {
+  return (
+    <motion.a
+      whileHover={{ scale: [1, 1.2, 1, 1.3] }}
+      animate={{ scale: [1, 1.2, 1] }}
+      {...props}
+    >
+      {props.children}
+    </motion.a>
+  );
+};
+
+const ListItem: React.FC<ListItemProps> = ({ title, id }) => {
   return (
     <li className="flex items-center gap-5 mb-2 cursor-pointer">
       <span className="h-0.5 w-8 bg-gray-800 dark:bg-stone-400 inline-block" />
@@ -23,7 +43,7 @@ function ListItem({ title, id }: ListItemProps): JSX.Element {
       </Link>
     </li>
   );
-}
+};
 
 export default function Sidebar(): JSX.Element {
   return (
@@ -36,9 +56,9 @@ export default function Sidebar(): JSX.Element {
         <div className="my-5">
           <h1 className="text-4xl dark:text-stone-200">
             I'm{" "}
-            <span className="font-semibold text-teal-950 dark:text-teal-200/70">
+            <motion.span className="font-semibold text-teal-950 dark:text-teal-200/70">
               Solomon Njobvu
-            </span>
+            </motion.span>
           </h1>
           <p className="text-2xl mt-2 text-stone-700 dark:text-stone-300">
             Frontend Software Developer
@@ -58,15 +78,15 @@ export default function Sidebar(): JSX.Element {
       </menu>
       {/* Social Media Links */}
       <nav className="flex gap-5 mt-5 text-stone-700 dark:text-slate-400">
-        <a href="https://www.linkedin.com/in/solomonnjobvu/" target="_blank">
+        <SocialLink
+          href="https://www.linkedin.com/in/solomonnjobvu/"
+          target="_blank"
+        >
           <FaLinkedin className="h-8 w-8 p-0.5" />
-        </a>
-        <a href="https://github.com/thisis-Solomon" target="_blank">
+        </SocialLink>
+        <SocialLink href="https://github.com/thisis-Solomon" target="_blank">
           <FaGithub className="h-8 w-8 p-0.5" />
-        </a>
-        {/* <a href="" target="_blank">
-          <FaInstagramSquare className="h-8 w-8 p-0.5" />
-        </a> */}
+        </SocialLink>
       </nav>
     </aside>
   );
