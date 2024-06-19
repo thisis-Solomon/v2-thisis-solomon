@@ -21,8 +21,7 @@ export default function Contact(): JSX.Element {
           <input
             type="hidden"
             name="_subject"
-            className="hidden"
-            value="This Email it's coming from your Portfolio"
+            value="This Email is coming from your Portfolio"
           />
           <Input
             type="email"
@@ -34,15 +33,14 @@ export default function Contact(): JSX.Element {
           <Input
             name="message"
             label="Message"
-            placeholder="Lets work together!"
-            cols={0}
+            placeholder="Let's work together!"
+            cols={30}
             rows={10}
-            type={undefined}
+            required
           />
-
           <input
             type="submit"
-            value="send"
+            value="Send"
             className="border dark:border-teal-700 dark:text-stone-300 text-lg uppercase py-1 rounded-md cursor-pointer"
           />
         </form>

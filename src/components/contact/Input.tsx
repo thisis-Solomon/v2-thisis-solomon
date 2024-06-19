@@ -12,6 +12,8 @@ export default function Input({
   type,
   name,
   label,
+  cols,
+  rows,
   ...props
 }: InputPropsIF): JSX.Element {
   const inputStyles =
@@ -27,9 +29,22 @@ export default function Input({
       </label>
 
       {type ? (
-        <input className={inputStyles} {...props} />
+        <input
+          className={inputStyles}
+          id={name}
+          name={name}
+          type={type}
+          {...props}
+        />
       ) : (
-        <textarea className={inputStyles} {...props}></textarea>
+        <textarea
+          className={inputStyles}
+          id={name}
+          name={name}
+          cols={cols}
+          rows={rows}
+          {...props}
+        ></textarea>
       )}
     </div>
   );
