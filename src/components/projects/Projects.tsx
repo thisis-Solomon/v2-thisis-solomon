@@ -27,7 +27,7 @@ interface ProjectIF {
   };
 }
 
-const MAX_PROJECT_DISPLAY: number = 4;
+const MAX_PROJECT_DISPLAY: number = 6;
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -94,12 +94,16 @@ export default function Projects(): JSX.Element {
           ))}
       </div>
       {!isLoading && projects.length > MAX_PROJECT_DISPLAY && (
-        <button className="border px-4 py-1 flex items-center gap-5 rounded-full dark:text-teal-600 self-center text-center">
-          View All Projects
+        <a
+          href="https://github.com/thisis-Solomon"
+          target="_blank"
+          className="border px-4 py-1 flex items-center gap-5 rounded-full dark:text-teal-600 self-center text-center"
+        >
+          Visit My GITHUB
           <span>
             <BsArrowRight />
           </span>
-        </button>
+        </a>
       )}
     </section>
   );
