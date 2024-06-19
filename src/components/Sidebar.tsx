@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { Link } from "react-scroll";
+import React, { useState } from "react";
 
 interface ListItemProps {
   title: string;
@@ -27,19 +28,51 @@ const SocialLink: React.FC<SocialLinkProps> = (props) => {
 };
 
 const ListItem: React.FC<ListItemProps> = ({ title, id }) => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleSetActive = () => {
+    setIsActive(true);
+  };
+
+  const handleSetInactive = () => {
+    setIsActive(false);
+  };
+
+  const spanVariants = {
+    active: { width: "6rem" },
+    inactive: { width: "2rem" },
+  };
+
+  const textVariants = {
+    active: { scale: 1.5, fontWeight: "500" },
+    inactive: { scale: 1 },
+  };
+
   return (
-    <li className="flex items-center gap-5 mb-2 cursor-pointer">
-      <span className="h-0.5 w-8 bg-gray-800 dark:bg-stone-400 inline-block" />
+    <li className="flex items-center gap-5 mb-2 cursor-pointer ">
       <Link
-        activeClass="active"
-        activeStyle={{ fontSize: 26, color: "#004c4c" }}
         to={id}
         spy={true}
         smooth={true}
         offset={-70}
         duration={1000}
+        onSetActive={handleSetActive}
+        onSetInactive={handleSetInactive}
+        className="flex items-center gap-6"
       >
-        {title}
+        <motion.span
+          className="h-0.5 bg-gray-800 dark:bg-stone-400 inline-block "
+          variants={spanVariants}
+          animate={isActive ? "active" : "inactive"}
+          transition={{ duration: 0.3 }}
+        />
+        <motion.span
+          variants={textVariants}
+          animate={isActive ? "active" : "inactive"}
+          transition={{ duration: 0.3 }}
+        >
+          {title}
+        </motion.span>
       </Link>
     </li>
   );
